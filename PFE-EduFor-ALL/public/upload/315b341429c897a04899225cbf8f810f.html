@@ -1,0 +1,87 @@
+{% extends "base.html.twig" %}
+{% block title %}
+<a href={{path("liste_cour")}} 
+class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">
+Gestion des Cours</a>
+<style>.inputSelect110 {
+    width: 735px;
+    height: 40px;
+    border-radius: 2px;
+    border: 2px solid #e6e6e6;
+    border-radius: 5px;
+      /* content: "\f00c"; */
+      font-family: FontAwesome;
+      font-size: 15px;
+      color: #333333;
+  }
+  </style>
+  <script src="https://cdn.ckeditor.com/4.19.0/standard-all/ckeditor.js"></script>
+  <script>
+    CKEDITOR.replace('editor1', {
+      fullPage: true,
+      extraPlugins: 'docprops',
+      // Disable content filtering because if you use full page mode, you probably
+      // want to  freely enter any HTML content in source mode without any limitations.
+      allowedContent: true,
+      height: 320,
+      removeButtons: 'PasteFromWord'
+    });
+  </script>
+{% endblock %}
+            {% block body %}
+           {# {{ form_start(form) }}
+            <div class="wrap-input100 validate-input m-b-26" data-validate="Nom is required">
+            <span class="label-input100">Nom</span>
+            {{ form_widget(form.nom, { 'attr': {'class': 'input100'} }) }}
+        </div>
+            {{ form_end(form) }}#}
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="white-box">
+                            <h3 class="box-title">Ajouter un Cour</h3>
+                            <p class="text-muted"></p>
+                            <div class="table-responsive">
+                            <form method="post" action={{path("article")}}   enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Titre</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter le titre" name="titre">
+   
+  </div>
+
+ <textarea cols="80" id="editor1" name="editor1" rows="10" >
+
+
+</textarea>
+ <div class="form-group">
+    <label for="exampleFormControlFile1"> choisi un image</label>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image">
+  </div>
+    <button type="submit" class="btn btn-primary" name="ok">Submit</button>
+  </form>
+                           
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            {% endblock %}

@@ -1,0 +1,75 @@
+
+{% extends "base.html.twig" %}
+{% block title %}
+<a href={{path("histoire")}} 
+class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">
+Ajouter un Histoire</a>
+
+{% endblock %}
+            {% block body %}
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="white-box">
+                            <h3 class="box-title">Gestion des Histoires</h3>
+                            <p class="text-muted"></p>
+                            <div class="table-responsive">
+                                <table class="table text-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th class="border-top-0">#</th>
+                                            <th class="border-top-0">Titre</th>
+                                            <th class="border-top-0">Histoire</th>
+                                          
+											<th class="border-top-0">Action</th>
+											
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for histoire in histoires %}
+                                    <tr>
+                                  <th scope="row">{{histoire.id}}</th>
+                                  <td>{{histoire.titre}}</td>
+                                  <td >{{histoire.histoire}}</td>
+                                 
+                                  <td> <a href={{path("edit",{'id':histoire.id})}}><span class="material-icons" style="color:blue">mode_edit </span></a>
+                              <a href={{path("delete",{'id':histoire.id})}}><span class="material-icons"  style="color:red">
+                            delete
+                            </span></a>
+                           
+                            
+                            
+                            </td>
+                                  
+                                </tr>
+                                {% endfor %}
+                                      
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            {% endblock %}

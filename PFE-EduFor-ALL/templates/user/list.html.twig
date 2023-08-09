@@ -1,0 +1,84 @@
+
+{% extends "base.html.twig" %}
+{% block title %}
+<a href={{path("user")}} 
+class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">
+Ajouter un utulisateur</a>
+
+{% endblock %}
+            {% block body %}
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="white-box">
+                            <h3 class="box-title">Gestion des utulisateurs</h3>
+                            <p class="text-muted"></p>
+                            <div class="table-responsive">
+                                <table class="table text-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th class="border-top-0">#</th>
+                                            <th class="border-top-0">Nom</th>
+                                            <th class="border-top-0">Prenom</th>
+                                            <th class="border-top-0">Email</th>
+                                            <th class="border-top-0">Role</th>
+											
+											<th class="border-top-0">Action</th>
+											
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+									{% for user in users %}
+  
+  
+									<tr>
+								  <th scope="row">{{user.id}}</th>
+								 
+								  <td>{{user.nom}}</td>
+								  <td>{{user.prenom}}</td>
+								  <td>{{user.email}}</td>
+                  {% for role in user.roles %}
+								  <td>{{role}}</td>
+                  {% endfor %}
+								  
+								  <td> <a href={{path("edit_user",{'id':user.id})}}><span class="material-icons" style="color:blue">mode_edit </span></a>
+							  <a href={{path("delete_user",{'id':user.id})}}><span class="material-icons"  style="color:red">
+							delete
+							</span></a>
+						
+							
+							
+							</td>
+								  
+								</tr>
+								{% endfor %}
+                                      
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            {% endblock %}
